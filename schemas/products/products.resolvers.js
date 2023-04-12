@@ -2,6 +2,7 @@ const {
   getAllProducts,
   getProductByPrice,
   getProductById,
+  addProduct,
 } = require("./products.model");
 
 module.exports = {
@@ -16,6 +17,11 @@ module.exports = {
 
     productById: (_, arg) => {
       return getProductById(arg.id);
+    },
+  },
+  Mutation: {
+    addNewProduct: (_, arg) => {
+      return addProduct(arg);
     },
   },
 };
