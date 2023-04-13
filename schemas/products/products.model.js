@@ -29,9 +29,22 @@ const addProduct = (product) => {
   return newProduct;
 };
 
+const addReview = (productId) => {
+  const { id, rating, comment } = productId;
+  const newReviewedProduct = getProductById(id);
+
+  newReviewedProduct.reviews.push({
+    rating,
+    comment,
+  });
+
+  return newReviewedProduct.reviews;
+};
+
 module.exports = {
   getAllProducts,
   getProductByPrice,
   getProductById,
   addProduct,
+  addReview,
 };
